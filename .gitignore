@@ -3,8 +3,8 @@
 .idea
 .wvenv
 .venv
-src/amygo/ui_main_window.py
-src/amygo/resources_rc.py
+src/amygo/ui/ui_main_window.py
+src/amygo/ui/resources_rc.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

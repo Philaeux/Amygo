@@ -21,11 +21,11 @@ win-clean:
 
 # Generate UI from Qt Designer files
 win-gen-ui:
-	.\.wvenv\Scripts\pyside6-uic.exe ./amygo/ui_main_window.ui -o ./amygo/ui_main_window.py --absolute-imports -python-paths .
+	.\.wvenv\Scripts\pyside6-uic.exe ./amygo/ui/ui_main_window.ui -o ./amygo/ui/ui_main_window.py --absolute-imports -python-paths .
 
 # Generate embedded resources from Qt resource file
 win-gen-resources:
-	.\.wvenv\Scripts\pyside6-rcc.exe ./amygo/resources.qrc -o ./amygo/resources_rc.py
+	.\.wvenv\Scripts\pyside6-rcc.exe ./amygo/ui/resources.qrc -o ./amygo/ui/resources_rc.py
 
 ## Generate a production build
 win-build:
@@ -54,11 +54,11 @@ unix-clean:
 
 # Generate UI from Qt Designer files
 unix-gen-ui:
-	./.venv/bin/pyside6-uic ./amygo/ui_main_window.ui -o ./amygo/ui_main_window.py --absolute-imports -python-paths .
+	./.venv/bin/pyside6-uic ./amygo/ui/ui_main_window.ui -o ./amygo/ui/ui_main_window.py --absolute-imports -python-paths .
 
 # Generate embedded resources from Qt resource file
 unix-gen-resources:
-	./.venv/bin/pyside6-rcc ./amygo/resources.qrc -o ./amygo/resources_rc.py
+	./.venv/bin/pyside6-rcc ./amygo/ui/resources.qrc -o ./amygo/ui/resources_rc.py
 
 ## Generate a production build
 unix-build:

@@ -1,5 +1,5 @@
 <RCC>
   <qresource>
-
+    <file>images/logout.svg</file>
   </qresource>
 </RCC>
