@@ -3,6 +3,9 @@
 .idea
 .wvenv
 .venv
+src/buid
+src/dist
+src/data/database/sqlite.db
 src/amygo/ui/ui_main_window.py
 src/amygo/ui/resources_rc.py
 

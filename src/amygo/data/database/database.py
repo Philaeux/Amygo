@@ -1,11 +1,14 @@
 import os
 import sys
+from pathlib import Path
+
+from alembic import command
+from alembic.config import Config
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
 
-from amygo.data.models.base_entity import BaseEntity
-from amygo.data.models.settings_entity import SettingEntity
+from amygo.data.database.entity_base import BaseEntity
+from amygo.data.database.entity_settings import SettingsEntity
 
 
 class Database:
@@ -27,15 +30,24 @@ class Database:
 
     def __init__(self):
         """Defines all necessary ressources (URI & engine) and create database if necessary."""
+
+        file_uri = ""
+        alembic = ""
+        migrations = ""
+
         if getattr(sys, 'frozen', False):
             file_uri = os.path.dirname(sys.executable)
+            alembic = Path(file_uri) / "alembic.ini"
+            migrations = Path(file_uri) / "alembic"
         elif __file__:
             file_uri = os.path.dirname(__file__)
+            alembic = Path(file_uri) / ".." / ".." / ".." / "alembic.ini"
+            migrations = Path(file_uri) / ".." / ".." / "alembic"
         self.uri = f"sqlite+pysqlite:///{file_uri}/sqlite.db"
         self.engine = create_engine(self.uri, echo=False)
-        BaseEntity.metadata.create_all(self.engine)
 
-        with Session(self.engine) as session:
-            if session.get(SettingEntity, "version") is None:
-                session.add(SettingEntity("version", "1"))
-            session.commit()
+        # Upgrade application to heads
+        alembic_cfg = Config(alembic)
+        alembic_cfg.set_main_option('script_location', str(migrations))
+        alembic_cfg.set_main_option('sqlalchemy.url', self.uri)
+        command.upgrade(alembic_cfg, 'head')

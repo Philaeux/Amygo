@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Amygo</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -51,7 +51,14 @@
            <item>
             <widget class="QPushButton" name="buttonResults">
              <property name="text">
-              <string>Show Results</string>
+              <string>Toggle Results</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="buttonClear">
+             <property name="text">
+              <string>Clear Expressions</string>
              </property>
             </widget>
            </item>
@@ -109,116 +116,334 @@
         <item>
          <widget class="QWidget" name="formWidget" native="true">
           <layout class="QGridLayout" name="gridLayout">
-           <item row="1" column="3">
-            <widget class="QCheckBox" name="checkBox_2">
+           <item row="1" column="0">
+            <widget class="QCheckBox" name="checkBoxAdditionEnabled">
              <property name="text">
               <string>Enabled</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="3">
-            <widget class="QLineEdit" name="lineEdit_2"/>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Addition&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <item row="8" column="1">
+            <widget class="QSpinBox" name="spinBoxSubstractionMaximum">
+             <property name="minimum">
+              <number>-999999999</number>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="maximum">
+              <number>999999999</number>
              </property>
             </widget>
            </item>
-           <item row="2" column="0">
+           <item row="4" column="1">
+            <widget class="QSpinBox" name="spinBoxAdditionMaximum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
             <widget class="QLabel" name="label_5">
              <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QLabel" name="label_6">
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2" colspan="2">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Subtraction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Minimum&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="1" column="7">
-            <widget class="QCheckBox" name="checkBox_4">
-             <property name="text">
-              <string>Enabled</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit"/>
-           </item>
-           <item row="2" column="4">
-            <widget class="QLabel" name="label_7">
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="5">
-            <widget class="QLineEdit" name="lineEdit_3"/>
-           </item>
-           <item row="1" column="5">
-            <widget class="QCheckBox" name="checkBox_3">
-             <property name="text">
-              <string>Enabled</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4" colspan="2">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Mulitplication&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="6">
-            <widget class="QLabel" name="label_8">
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="6" colspan="2">
+           <item row="5" column="0" colspan="2">
             <widget class="QLabel" name="label_3">
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Division&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Subtraction&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
-           <item row="2" column="7">
-            <widget class="QLineEdit" name="lineEdit_4"/>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Addition&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QCheckBox" name="checkBox">
+           <item row="6" column="1">
+            <widget class="QCheckBox" name="checkBoxSubstractionAllowNegative">
+             <property name="text">
+              <string>Allow negative result</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QCheckBox" name="checkBoxSubstractionEnabled">
              <property name="text">
               <string>Enabled</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>Maximum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QSpinBox" name="spinBoxSubstractionMinimum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Divisor Minimum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0" colspan="2">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Multiplication&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Minimum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Maximum&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QSpinBox" name="spinBoxAdditionMinimum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Minimum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Maximum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
+            <widget class="QSpinBox" name="spinBoxMultiplicationMaximum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QSpinBox" name="spinBoxMultiplicationMinimum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="0" colspan="2">
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Division&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="0">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Dividend Minimum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QCheckBox" name="checkBoxMultiplicationEnabled">
+             <property name="text">
+              <string>Enabled</string>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="0">
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Dividend Maximum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="0">
+            <widget class="QCheckBox" name="checkBoxDivisionEnabled">
+             <property name="text">
+              <string>Enabled</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="1">
+            <widget class="QCheckBox" name="checkBoxDivisionForceInt">
+             <property name="text">
+              <string>Force division without rest</string>
+             </property>
+            </widget>
+           </item>
+           <item row="15" column="1">
+            <widget class="QSpinBox" name="spinBoxDivisionDividendMinimum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="1">
+            <widget class="QSpinBox" name="spinBoxDivisionDividendMaximum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="18" column="0">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Divisor Maximum</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="1">
+            <widget class="QSpinBox" name="spinBoxDivisionDivisorMinimum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="18" column="1">
+            <widget class="QSpinBox" name="spinBoxDivisionDivisorMaximum">
+             <property name="minimum">
+              <number>-999999999</number>
+             </property>
+             <property name="maximum">
+              <number>999999999</number>
              </property>
             </widget>
            </item>
           </layout>
          </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonSettingsSave">
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonSettingsCancel">
+            <property name="text">
+             <string>Cancel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
         <item>
          <spacer name="verticalSpacer">
@@ -245,7 +470,7 @@
      <x>0</x>
      <y>0</y>
      <width>646</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

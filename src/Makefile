@@ -27,6 +27,10 @@ win-gen-ui:
 win-gen-resources:
 	.\.wvenv\Scripts\pyside6-rcc.exe ./amygo/ui/resources.qrc -o ./amygo/ui/resources_rc.py
 
+# Generate database migrations
+win-gen-migrations:
+	.\.wvenv\Scripts\alembic.exe revision --autogenerate
+
 ## Generate a production build
 win-build:
 	.\.wvenv\Scripts\pyinstaller.exe --noconfirm .\Amygo.spec
