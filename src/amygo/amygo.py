@@ -39,25 +39,32 @@ class Amygo:
         self.window.buttonClear.clicked.connect(self.button_clear)
         self.window.buttonSettingsCancel.clicked.connect(self.button_settings_cancel)
         self.window.buttonSettingsSave.clicked.connect(self.button_settings_save)
-        self.model_expression_list = ExpressionListModel()
-        self.window.tableViewExpressions.setModel(self.model_expression_list)
+        self.model_expression_list = []
+        for i in range(4):
+            model = ExpressionListModel()
+            self.model_expression_list.append(model)
+            getattr(self.window, f"tableViewExpressions{i}").setModel(model)
 
         self.button_settings_cancel()
         self.window.show()
 
     def button_add(self):
         expression = generate_exercise(self.settings)
-        self.model_expression_list.expressions.append(expression)
-        self.model_expression_list.layoutChanged.emit()
+        model = self.model_expression_list.pop(0)
+        model.expressions.append(expression)
+        self.model_expression_list.append(model)
+        model.layoutChanged.emit()
 
     def button_results(self):
-        self.model_expression_list.show_results = not self.model_expression_list.show_results
-        self.model_expression_list.layoutChanged.emit()
+        for model in self.model_expression_list:
+            model.show_results = not model.show_results
+            model.layoutChanged.emit()
 
     def button_clear(self):
-        self.model_expression_list.expressions = []
-        self.model_expression_list.show_results = False
-        self.model_expression_list.layoutChanged.emit()
+        for model in self.model_expression_list:
+            model.expressions = []
+            model.show_results = False
+            model.layoutChanged.emit()
 
     def button_settings_save(self):
         with Session(self.database.engine) as session:

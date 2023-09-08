@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from PySide6.QtGui import QFontDatabase, QPixmap
+from PySide6.QtGui import QFontDatabase, QPixmap, Qt
 from PySide6.QtWidgets import QMainWindow
 
 from amygo.ui.ui_main_window import Ui_MainWindow
@@ -14,3 +14,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_A:
+            self.buttonAdd.clicked.emit()
