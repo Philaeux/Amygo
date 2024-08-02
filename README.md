@@ -14,3 +14,7 @@ Be aware that the settings you set are saved in the ``sqlite.db``. So if you upd
 ![Settings Image](docs/settings.png)
 
 Configure all operation generation with the settings Tab.
+
+### Dev
+
+To update the ui file, use [Qt Designer](https://build-system.fman.io/qt-designer-download).
